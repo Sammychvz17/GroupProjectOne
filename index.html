@@ -7,6 +7,7 @@
     <title>Gobal Covid Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/cs/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
 </head>
 <body>
     <header class="py-5 mb-4 has-background-grey-light box-link-active-shadow is-flex is-align-items-center is-justify-content-center">
@@ -20,7 +21,7 @@
         </div>
         <div class="column m-3 p-6" id=""> 
             <div id="graph">
-                
+                <canvas id="chart"></canvas>
                 
             </div>  
         </div>
@@ -28,6 +29,7 @@
     <footer id="footer" class="footer has-text-centered has-background-grey-light">
         <p>Names here</p>
     </footer>
+
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
