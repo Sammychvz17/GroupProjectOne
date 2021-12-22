@@ -75,3 +75,42 @@ getData();
         console.log('https://api.covidactnow.org/v2/states.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')    
         console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')    
 
+        {
+            "graph": {
+              "directed": false,
+              "type": "graph type",
+              "label": "graph label",
+              "metadata": {
+                "user-defined": "values"
+              },
+              "nodes": {
+                "0": {
+                  "label": "node label(0)",
+                  "metadata": {
+                    "type": "node type",
+                    "user-defined": "values"
+                  }
+                },
+                "1": {
+                  "label": "node label(1)",
+                  "metadata": {
+                    "type": "node type",
+                    "user-defined": "values"
+                  }
+                }
+              },
+              "edges": [
+                {
+                  "source": "0",
+                  "relation": "edge relationship",
+                  "target": "1",
+                  "directed": false,
+                  "label": "edge label",
+                  "metadata": {
+                    "user-defined": "values"
+                  }
+                }
+              ]
+            }
+          }
+          console.log("graph");[];
