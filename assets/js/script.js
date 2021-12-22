@@ -54,13 +54,15 @@ getData();
 
 
 
-    button.addEventListener('click', function covidInfo(stateSearch){
-        fetch('https://api.covidactnow.org/v2/states.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37').then(response =>{
-            return response.json();
-    }).then(data => {
-        console.log(data);
-        var infected = data.actuals.cases;
-        casesEl.innerHTML = `Cases: `+ infected
+    button.addEventListener('click', function(stateSearch){
+        fetch('https://api.covidactnow.org/v2/state/'+state.value+'.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
+        .then(response => response.json())
+        .then(data => {
+        
+        var cases = actuals.cases;
+
+        casesEl.innerHTML = "Cases: " + cases;
+        
 
         console.log(data)
     }).catch(error => {
@@ -69,6 +71,6 @@ getData();
 
     })       
         
-        console.log('https://api.covidactnow.org/v2/states.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')    
+        console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')    
         
     
