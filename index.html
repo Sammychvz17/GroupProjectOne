@@ -7,20 +7,25 @@
     <title>Gobal Covid Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/cs/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 <body>
     <header class="py-5 mb-4 has-background-grey-light box-link-active-shadow is-flex is-align-items-center is-justify-content-center">
-        <h1 class="has-text-centered has-text-danger-dark">Gobal Covid Tracker</h1>
+        <h1 class="has-text-centered has-text-danger-dark">US Covid Tracker</h1>
     </header>
     <main class="columns is-flex  is-justify-content-center"> 
         <div class="column m-3 p-6">
-            <h2>Search Country Here:</h2> </br>
-            <input class="country-name-input" name="countryName" id="countryName" type="text" placeholder="Enter Country Name"/>
+            <h2>Search State Here:</h2> </br>
+            <input class="country-name-input" name="countryName" id="stateName" type="text" placeholder="Enter State Name"/>
             <button class="button is-danger is-outlined is-small" type="submit">Get Data</button>
+            <div id="covidinfo">
+                
+            </div>
         </div>
         <div class="column m-3 p-6" id=""> 
-            <div >
-                <img class="img-cont" src="./assets/img/Political-World-Map.jpg" alt="Wold Map">
+            <div id="graph">
+                <canvas id="chart"></canvas>
                 
             </div>  
         </div>
@@ -29,5 +34,6 @@
         <p>Names here</p>
     </footer>
 
+<script src="./assets/js/script.js"></script>
 </body>
 </html>
