@@ -5,6 +5,7 @@ var state = document.querySelector('#stateName');
 var button = document.querySelector('.button');
 var casesEl = document.querySelector('#casesEl');
 var deathsEl = document.querySelector('#deathsEl');
+var previously = document.querySelector('#previously')
 var vaccinesEl = document.querySelector('#vaccinesEl');
 
 async function getData() {
@@ -56,13 +57,10 @@ getData();
 
    
 
-button.addEventListener('click', function(stateSearch){
+    button.addEventListener('click', function(stateSearch){
     fetch('https://api.covidactnow.org/v2/state/'+state.value+'.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
     .then(response => response.json())
     .then(data => {
-
-    
-
         
         var infected = data.actuals.cases;
         casesEl.innerHTML = "Cases: "+ infected;
@@ -72,24 +70,38 @@ button.addEventListener('click', function(stateSearch){
 
         var vaccinesAdministered = data.actuals.vaccinesAdministered;
         vaccinesEl.innerHTML = "Vaccines Administered: "+ vaccinesAdministered;
-        
 
-    
+        function createElement(){
+            var stateStorage = localStorage.setItem('previous', data.state)
+            
+        }
+        createElement()
+
+       var value = function (){
+        return localStorage.getItem('previous')
+            
+        }
+        var storageEl = document.createElement("h2");
+        storageEl.append(value());
+        previously.append(storageEl);
+        console.log(value())
+        });
         
     })
+
+       
+        
     
-    .catch(err => console.log(err));
-    })
+    
+    
 
  
-
-
- 
+    
    
-
 
           
         
     console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
         
     
+
