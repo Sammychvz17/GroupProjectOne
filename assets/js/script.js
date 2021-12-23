@@ -71,6 +71,6 @@ getData();
 
     })       
         
-        console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')    
+        console.log('https://corona.lmao.ninja/v2/states/:states?yesterday=true');    
         
     
