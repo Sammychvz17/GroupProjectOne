@@ -90,10 +90,6 @@ button.addEventListener('click', function(stateSearch){
 
           
         
-<<<<<<< HEAD
-        console.log('https://corona.lmao.ninja/v2/states/:states?yesterday=true');    
-=======
     console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
->>>>>>> 7d6d6f3f239f1945f3aeece8fd86bbfae22596d2
         
     
