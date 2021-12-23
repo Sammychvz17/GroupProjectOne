@@ -3,9 +3,9 @@ const xlabels = [];
 const yconfirmed = [];
 var state = document.querySelector('#stateName');
 var button = document.querySelector('.button');
-var casesEl = document.querySelector('#cases');
-var deathsEl = document.querySelector('#deaths');
-let states = [];
+var casesEl = document.querySelector('#casesEl');
+var deathsEl = document.querySelector('#deathsEl');
+var vaccinesEl = document.querySelector('#vaccinesEl');
 
 async function getData() {
     var response = await fetch('https://covid19.richdataservices.com/rds/api/query/int/jhu_country/select?cols=date_stamp,cnt_confirmed,cnt_death,cnt_recovered&where=(iso3166_1=US)&limit=5000');
@@ -54,23 +54,42 @@ getData();
 
 
 
-    button.addEventListener('click', function(stateSearch){
-        fetch('https://api.covidactnow.org/v2/state/'+state.value+'.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
-        .then(response => response.json())
-        .then(data => {
-        
-        var cases = actuals.cases;
+   
 
-        casesEl.innerHTML = "Cases: " + cases;
+button.addEventListener('click', function(stateSearch){
+    fetch('https://api.covidactnow.org/v2/state/'+state.value+'.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
+    .then(response => response.json())
+    .then(data => {
+
+    
+
+        
+        var infected = data.actuals.cases;
+        casesEl.innerHTML = "Cases: "+ infected;
+
+        var deaths = data.actuals.deaths;
+        deathsEl.innerHTML = "Deaths: "+ deaths;
+
+        var vaccinesAdministered = data.actuals.vaccinesAdministered;
+        vaccinesEl.innerHTML = "Vaccines Administered: "+ vaccinesAdministered;
         
 
-        console.log(data)
-    }).catch(error => {
-        console.log(error);
-    }) 
-
-    })       
+    
         
-        console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')    
+    })
+    
+    .catch(err => console.log(err));
+    })
+
+ 
+
+
+ 
+   
+
+
+          
+        
+    console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
         
     
