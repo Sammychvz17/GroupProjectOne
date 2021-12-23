@@ -7,6 +7,7 @@ var casesEl = document.querySelector('#casesEl');
 var deathsEl = document.querySelector('#deathsEl');
 var previously = document.querySelector('#previously')
 var vaccinesEl = document.querySelector('#vaccinesEl');
+var cityTracker;
 
 async function getData() {
     var response = await fetch('https://covid19.richdataservices.com/rds/api/query/int/jhu_country/select?cols=date_stamp,cnt_confirmed,cnt_death,cnt_recovered&where=(iso3166_1=US)&limit=5000');
@@ -61,7 +62,8 @@ getData();
     fetch('https://api.covidactnow.org/v2/state/'+state.value+'.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
     .then(response => response.json())
     .then(data => {
-        
+        cityTracker = data.state;
+
         var infected = data.actuals.cases;
         casesEl.innerHTML = "Cases: "+ infected;
 
@@ -71,35 +73,54 @@ getData();
         var vaccinesAdministered = data.actuals.vaccinesAdministered;
         vaccinesEl.innerHTML = "Vaccines Administered: "+ vaccinesAdministered;
 
-        function createElement(){
-            var stateStorage = localStorage.setItem('previous', data.state)
-            
-        }
-        createElement()
-
-       var value = function (){
-        return localStorage.getItem('previous')
-            
-        }
-        var storageEl = document.createElement("h2");
-        storageEl.append(value());
-        previously.append(storageEl);
-        console.log(value())
+        
+        searchHistory();
+        displayStorage();
         });
         
     })
 
+    var searchHistory = function (){
+        var searchItemsArr;
+        var searchedItems = localStorage.getItem('previous');
+        if (searchedItems) {
+            searchItemsArr = searchedItems.split(",");
+            if (localStorage.getItem('previous').indexOf(cityTracker) === -1) {
+                searchItemsArr.push(cityTracker);
+                localStorage.setItem("previous", searchItemsArr);
+            }
+            }  else {
+            localStorage.setItem('previous', cityTracker)
+            }
+            return cityTracker
+        };
+
+    var displayStorage = function (){
+        var previously2 = document.querySelector("#previously2");
+        previously2.remove()
+        var previously2 = document.createElement("div")
+        previously2.setAttribute("id", "previously2")
+        previously.append(previously2)
+        var searchItemsArr;
+        var searchedItems = localStorage.getItem('previous');
+        if (searchedItems) {
+        searchItemsArr = searchedItems.split(",");
+        for (i = 0; i < searchItemsArr.length; i++) {
+        var storageEl = document.createElement("ul");
+        storageEl.textContent = searchItemsArr[i];
+        previously2.append(storageEl);
+        console.log()
+            }
+        }
+    };
+
        
-        
-    
-    
+    displayStorage();
     
 
  
     
-   
 
-          
         
     console.log('https://api.covidactnow.org/v2/state/TX.json?apiKey=b5439389d4fe4bb8bf52dad78d3fab37')
         
