@@ -12,7 +12,7 @@
 
 }
 
-#countryName {
+#stateName {
     height: 2.2em;
     width: 15em;
     font-family:'Times New Roman', Times, serif;
@@ -45,5 +45,12 @@ h2 {
     
 }
 
+#previously {
+    margin-top: 50px;
+}
+
+#covidinfo {
+    margin-top: 20px;
+}
 
 
