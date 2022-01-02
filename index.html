@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> US Covid Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/cs/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+<body>
+    <header class="py-5 mb-4 has-background-grey-light box-link-active-shadow is-flex is-align-items-center is-justify-content-center">
+        <h1 class="has-text-centered has-text-danger-dark">US Covid Tracker</h1>
+    </header>
+    <main class="columns m-2 is-flex  is-justify-content-center"> 
+
+        <div id="previously" class="column m-3 p-6">
+
+            <h2>Search State Here:</h2> </br>
+            <input class="country-name-input" name="countryName" id="stateName" type="text" placeholder="Enter State Abbreviation"/>
+            <button class="button is-danger is-outlined is-small" type="submit">Get Data</button>
+            <div id="covidinfo" class="p-3">
+                <h3 id="casesEl"></h3>
+                <h3 id="deathsEl"></h3>
+                <h3 id="vaccinesEl"></h3>
+            </div>
+            <div id="previously2">
+
+            </div>
+        </div>
+        <div class="column m-3 p-6" > 
+            <div id="graph">
+                <canvas id="chart"></canvas>
+                
+            </div>  
+        </div>
+    </main>
+    <footer id="footer" class="footer has-text-centered has-background-grey-light has-text-black">
+        <p>Samantha Chavez</p>
+        <p>Maverick Cavazos</p>
+        <p>Cole Davis</p>
+        <p>James Chukwu</p>
+    </footer>
+
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
