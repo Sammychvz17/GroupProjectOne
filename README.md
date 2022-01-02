@@ -11,6 +11,8 @@ This application will show covid data and rates around the globe using two apis 
 
 Below is a image of the home page which is the index.html! This page displays both of our API's used which include the search state bar on the left and the real time graph on the right.
 
+![home page](./assets/img/covidtracker.jpg)
+
 The search state bar uses a API that provides real time covid data on a state by state basis. The information we chose to target and display were the cases, death rate, and vaccinations given.
 Once you search a state it is then stored in local data and displayed below to show which state you have previously looked up.
 
@@ -18,6 +20,6 @@ On the right hand side you can see the graph. This uses a API that shows the con
 
 As for the design we choose to keep it simple when discussing such sensitive medical data on a more somber, but useful, topic. 
 
-![home page](./assets/img/covidtracker.jpg)
+
 
 
